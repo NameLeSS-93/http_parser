@@ -24,9 +24,10 @@ def main():
             request = ''
             while True:
                 data = conn.recv(1024)
+                request += data.decode('UTF-8')
                 if not data:
                     break
-                request += data.decode('UTF-8')
+                
         parsed_http = parse_http(request)
         
         
